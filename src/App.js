@@ -8,18 +8,62 @@ import Wallet from "./components/Wallet";
 import SVG from "./components/SVG";
 
 function App() {
-  useEffect(() => {
-    toast.success("🦄 Hello Munim XD", {
-      position: "bottom-left",
-      autoClose: 5000,
+  // const [randomWallet, setRandomWallet] = useState(null);
 
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  }, []);
+  // useEffect(() => {
+  //   //generate random wallet address after every 5 seconds
+  //   const generateWallet = () => {
+  //     setRandomWallet("0x" + Math.random().toString(36).substr(-40));
+  //     const wallet = "0x" + Math.random().toString(36).substr(-40);
+  //     console.log(wallet);
+  //   };
+
+  //   toast.success(randomWallet, {
+  //     position: "bottom-left",
+  //     autoClose: 5000,
+
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //   });
+
+  //   //after 5 seconds call function again
+  //   generateWallet();
+  // }, []);
+
+  const [randomWallet, setRandomWallet] = useState(null);
+
+  useEffect(() => {
+    const randomnumbers = Math.random().toString(36).substr(-40);
+    console.log(randomnumbers);
+    //generate random wallet address with dots after every 5 seconds
+    const interval = setInterval(() => {
+      setRandomWallet("0x" + Math.random().toString(36).substr(-40));
+    }, 7000);
+
+    console.log(randomWallet);
+
+    if (randomWallet === null) {
+      return;
+    } else {
+      toast.success(`${randomWallet} mint new nft`, {
+        position: "bottom-left",
+        autoClose: 5000,
+
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    return () => clearInterval(interval);
+  }, [randomWallet]);
+
+  // generate random bloackchain address after every 5 seconds
 
   return (
     <>
