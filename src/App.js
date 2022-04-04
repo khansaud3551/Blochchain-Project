@@ -38,10 +38,10 @@ function App() {
   useEffect(() => {
     const randomnumbers = Math.random().toString(36).substr(-40);
     console.log(randomnumbers);
-    //generate random wallet address with dots after every 5 seconds
+    //generate random wallet address with dots after every 7 seconds
     const interval = setInterval(() => {
       setRandomWallet("0x" + Math.random().toString(36).substr(-40));
-    }, 7000);
+    }, 6000);
 
     console.log(randomWallet);
 
@@ -50,7 +50,7 @@ function App() {
     } else {
       toast.success(`${randomWallet} mint new nft`, {
         position: "bottom-left",
-        autoClose: 5000,
+        autoClose: 4000,
 
         hideProgressBar: false,
         closeOnClick: true,
