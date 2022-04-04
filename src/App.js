@@ -40,7 +40,13 @@ function App() {
     console.log(randomnumbers);
     //generate random wallet address with dots after every 7 seconds
     const interval = setInterval(() => {
-      setRandomWallet("0x" + Math.random().toString(36).substr(-40));
+      //  setRandomWallet("0x" + Math.random().toString(36).substr(-40));
+      setRandomWallet(
+        "0x" +
+          Math.random().toString(35).substr(-5) +
+          "..." +
+          Math.random().toString(18).substr(-4)
+      );
     }, 6000);
 
     console.log(randomWallet);

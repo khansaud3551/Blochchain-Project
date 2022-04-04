@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 function Wallet() {
   const [count, setCount] = useState(1);
-  //decimal upto 2
-
   const [amount, setAmount] = useState(0.15);
 
   const increment = () => {
@@ -12,8 +10,6 @@ function Wallet() {
 
       setAmount(amount + 0.15);
     }
-
-    console.log(amount.toFixed(2));
   };
 
   const decrement = () => {
