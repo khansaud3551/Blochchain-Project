@@ -4,6 +4,7 @@ function Wallet() {
   const [count, setCount] = useState(1);
   const [amount, setAmount] = useState(0.15);
 
+  //increment decmrent by 0.15
   const increment = () => {
     if (count < 5) {
       setCount(count + 1);
